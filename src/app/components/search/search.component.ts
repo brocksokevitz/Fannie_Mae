@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  public apps = {"app1": {"Application Name": "First App", "Total Weighted Score":"","% New":"","Complexity":"","Impact":"","Business criticality":"","History":"","Release frequency":"","Developed In-house":"","Shared Component":"","Volume":"","Proven scale":""},
-"app2": {},
-"app3": {}
-};
+  public apps = [{"Application Name": "First App", "Total Weighted Score":90,"% New":9,"Complexity":9,"Impact":9,"Business criticality":9,"History":9,"Release frequency":9,"Developed In-house":9,"Shared Component":9,"Volume":9,"Proven scale":9},
+  {"Application Name": "Second App", "Total Weighted Score":90,"% New":9,"Complexity":9,"Impact":9,"Business criticality":9,"History":9,"Release frequency":9,"Developed In-house":9,"Shared Component":9,"Volume":9,"Proven scale":9},
+  {"Application Name": "Third App", "Total Weighted Score":90,"% New":9,"Complexity":9,"Impact":9,"Business criticality":9,"History":9,"Release frequency":9,"Developed In-house":9,"Shared Component":9,"Volume":9,"Proven scale":9}
+  ];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }
