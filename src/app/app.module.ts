@@ -6,11 +6,17 @@ import { AppComponent } from "./app.component";
 
 import { LandingComponent } from "./components/landing/landing.component";
 import { AddFormComponent } from "./components/add-form/add-form.component";
-import { SearchComponent } from './search/search.component';
-import { ModifyComponent } from './modify/modify.component';
+import { SearchComponent } from "./components/search/search.component";
+import { ModifyComponent } from "./components/modify/modify.component";
 
 @NgModule({
-  declarations: [AppComponent, LandingComponent, AddFormComponent, SearchComponent, ModifyComponent],
+  declarations: [
+    AppComponent,
+    LandingComponent,
+    AddFormComponent,
+    SearchComponent,
+    ModifyComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
