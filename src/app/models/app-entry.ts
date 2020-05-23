@@ -1,15 +1,15 @@
 export class AppEntry {
   constructor(
-    public applicationname: string,
-    public percentNew: any,
+    public appname: string,
+    public percentnew: any,
     public complexity: any,
     public impact: any,
-    public businessCriticality: any,
+    public businesscriticality: any,
     public history: any,
-    public releaseFrequency: any,
-    public developedInhouse: any,
-    public sharedComponent: any,
+    public releasefrequency: any,
+    public developedinhouse: any,
+    public sharedcomponent: any,
     public volume: any,
-    public provenScale: any
+    public provenscale: any
   ) {}
 }
