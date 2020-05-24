@@ -38,9 +38,11 @@ export class AppService {
   calculateScore(entry: AppEntry) {
     // Percent New Calculation
     let percNewWeight = 100.0;
-
+    console.log("in calculate");
+    console.log(entry.percentnew);
     entry.percentnew = entry.percentnew * percNewWeight;
-
+    console.log("after multiple");
+    console.log(entry.percentnew);
     //Complexity Calc
 
     let complexityWeight = 50.0;
@@ -100,7 +102,8 @@ export class AppService {
 
   appEntryMock(entry: AppEntry) {
     entry = this.calculateScore(entry);
-
+    console.log("after calculate");
+    console.log(entry);
     return entry;
   }
 

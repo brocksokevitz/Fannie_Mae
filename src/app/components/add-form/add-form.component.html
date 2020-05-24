@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6 addForm">
       <form
         #entryForm="ngForm"
         (ngSubmit)="onSubmit()"
@@ -211,6 +211,58 @@
           Submit
         </button>
       </form>
+    </div>
+
+    <div class="col-md-6 text-center addForm">
+      <h1>Dashboard</h1>
+      <div class="totalScore">
+        Total Score <br />
+        {{ totalScore }}
+      </div>
+      <div class="flex-container">
+        <div class="scoreTile" id="percNewScoreTile">
+          <h5>% New</h5>
+          <br />
+
+          <p>{{ percNewScore }}</p>
+        </div>
+        <div class="scoreTile" id="complexityScoreTile">
+          <h5>Compelxity</h5>
+          {{ complexityScore }}
+        </div>
+        <div class="scoreTile" id="impactScoreTile">
+          <h5>Impact</h5>
+          {{ impactScore }}
+        </div>
+        <div class="scoreTile" id="bcScoreTile">
+          <h5>Business Criticality</h5>
+          {{ businessCritScore }}
+        </div>
+        <div class="scoreTile" id="historyScoreTile">
+          <h5>History</h5>
+          {{ historyScore }}
+        </div>
+        <div class="scoreTile" id="releaseFrequencyScoreTile">
+          <h5>Release Frequency</h5>
+          {{ releaseFreqScore }}
+        </div>
+        <div class="scoreTile" id="devInHouseScoreTile">
+          <h5>Developed Inhouse</h5>
+          {{ devInHouseScore }}
+        </div>
+        <div class="scoreTile" id="sharedCompScoreTile">
+          <h5>Shared Component</h5>
+          {{ sharedCompScore }}
+        </div>
+        <div class="scoreTile" id="volumeScoreTile">
+          <h5>Volume</h5>
+          {{ volumeScore }}
+        </div>
+        <div class="scoreTile" id="provenScaleScoreTile">
+          <h5>Proven Scale</h5>
+          {{ provenScaleScore }}
+        </div>
+      </div>
     </div>
   </div>
 </div>
