@@ -8,7 +8,7 @@ import { AppService } from "src/app/services/app.service.service";
   styleUrls: ["./add-form.component.css"],
 })
 export class AddFormComponent implements OnInit {
-  newEntry = new AppEntry("", "", "", "", "", "", "", "", "", "", "");
+  newEntry = new AppEntry("", "", "", "", "", "", "", "", "", "", "", "");
   constructor(private _appService: AppService) {}
 
   ngOnInit() {}
@@ -50,5 +50,7 @@ export class AddFormComponent implements OnInit {
         console.log("Error", error);
       }
     );
+    console.log("Entry with total");
+    console.log(this._appService.appEntryMock(this.newEntry));
   }
 }

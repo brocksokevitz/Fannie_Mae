@@ -10,6 +10,7 @@ export class AppEntry {
     public developedinhouse: any,
     public sharedcomponent: any,
     public volume: any,
-    public provenscale: any
+    public provenscale: any,
+    public total: any
   ) {}
 }
