@@ -40,7 +40,15 @@ export class AppService {
         "Inside AppService entryappName: " +
           searchEntry.appname
       );
-  
-      return this._http.post<any>(this._loginUrl, searchEntry);
+
+      for (let i = 0; i < this.apps.length; i++) {
+        if(this.apps[i].appname == searchEntry.appname){
+          return this.apps[i];
+        }
+      }
+
+      return "App doesn't exist";
     }
+
+
 }
