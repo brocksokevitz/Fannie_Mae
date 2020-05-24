@@ -14,9 +14,11 @@ export class AppService {
 
   //list of apps to simulate backend
 
-  public apps = [new AppEntry("app1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1"),
-  new AppEntry("b", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2"),
-  new AppEntry("app3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3")];
+  public apps = [
+    new AppEntry("app1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", ""),
+    new AppEntry("b", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", ""),
+    new AppEntry("app3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", ""),
+  ];
 
   // Method for adding a new application. AppEntry object passed as parameter has application name and scores.
   appEntry(entry: AppEntry) {
@@ -33,14 +35,80 @@ export class AppService {
     return this._http.post<any>(this._loginUrl, entry);
   }
 
-    // Method for searching for an application
-    searchEntry(searchEntry: SearchEntry) {
-      //To ensure data is being passed to the service. Delete later.
-      console.log(
-        "Inside AppService entryappName: " +
-          searchEntry.appname
-      );
-  
-      return this._http.post<any>(this._loginUrl, searchEntry);
-    }
+  calculateScore(entry: AppEntry) {
+    // Percent New Calculation
+    let percNewWeight = 100.0;
+
+    entry.percentnew = entry.percentnew * percNewWeight;
+
+    //Complexity Calc
+
+    let complexityWeight = 50.0;
+
+    entry.complexity = entry.complexity * complexityWeight;
+
+    //Impact Calc
+    let impactWeight = 70.0;
+    entry.impact = entry.impact * impactWeight;
+
+    //Business Criticality
+    let criticalityWeight = 100.0;
+    entry.businesscriticality = entry.businesscriticality * criticalityWeight;
+
+    //History Calc
+    let historyWeight = 100.0;
+    entry.history = entry.history * historyWeight;
+
+    //Release Frquency
+    let realeaseFrequency = 50.0;
+    entry.releasefrequency = entry.releasefrequency * realeaseFrequency;
+
+    //Developed In-house
+    let devlopedInHouse = 100.0;
+    entry.developedinhouse = entry.developedinhouse * devlopedInHouse;
+
+    //Shared Component
+    let sharedCompWeight = 100.0;
+    entry.sharedcomponent = entry.sharedcomponent * sharedCompWeight;
+
+    //Volume
+    let volumeWeight = 100.0;
+    entry.volume = entry.volume * volumeWeight;
+
+    //Proven Scale
+    let provenScale = 100.0;
+    entry.provenscale = entry.provenscale * provenScale;
+
+    //Calculate Total Score
+
+    let total =
+      entry.percentnew +
+      entry.complexity +
+      entry.impact +
+      entry.businesscriticality +
+      entry.history +
+      entry.releasefrequency +
+      entry.developedinhouse +
+      entry.sharedcomponent +
+      entry.volume +
+      entry.provenscale;
+
+    entry.total = total;
+
+    return entry;
+  }
+
+  appEntryMock(entry: AppEntry) {
+    entry = this.calculateScore(entry);
+
+    return entry;
+  }
+
+  // Method for searching for an application
+  searchEntry(searchEntry: SearchEntry) {
+    //To ensure data is being passed to the service. Delete later.
+    console.log("Inside AppService entryappName: " + searchEntry.appname);
+
+    return this._http.post<any>(this._loginUrl, searchEntry);
+  }
 }
