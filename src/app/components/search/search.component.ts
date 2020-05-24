@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchEntry } from "src/app/models/search-entry";
+import { AppService } from "src/app/services/app.service.service";
 
 @Component({
   selector: 'app-search',
@@ -6,15 +8,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-
-  public apps = [{"Application Name": "First App", "Total Weighted Score":90,"% New":9,"Complexity":9,"Impact":9,"Business criticality":9,"History":9,"Release frequency":9,"Developed In-house":9,"Shared Component":9,"Volume":9,"Proven scale":9},
-  {"Application Name": "Second App", "Total Weighted Score":90,"% New":9,"Complexity":9,"Impact":9,"Business criticality":9,"History":9,"Release frequency":9,"Developed In-house":9,"Shared Component":9,"Volume":9,"Proven scale":9},
-  {"Application Name": "Third App", "Total Weighted Score":90,"% New":9,"Complexity":9,"Impact":9,"Business criticality":9,"History":9,"Release frequency":9,"Developed In-house":9,"Shared Component":9,"Volume":9,"Proven scale":9}
-  ];
-
-  constructor() {}
+  newSearch = new SearchEntry("");
+  constructor(private _appService: AppService) {}
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    //Just to verify that the data is being recieved from the form. Delete later.
+    console.log(
+      "Start onSubmit() : newSearch: " +
+        this.newSearch.appname
+    );
+
+    this._appService.searchEntry(this.newSearch).subscribe(
+      //When a request is successful the data will be returned in the data object.
+      (data) => {
+        console.log("Success", data);
+      },
+      //Incase of error from request, error info is return through error object.
+      (error) => {
+        console.log("Error", error);
+      }
+    );
   }
 
 }

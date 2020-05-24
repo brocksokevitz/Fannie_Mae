@@ -1,16 +1,35 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <!-- Search form -->
-    <div class="container-fluid">
-      <!-- Search form -->
-      <input
-        id="searchBar"
-        class="form-control"
-        type="text"
-        placeholder="Search"
-        aria-label="Search"
-      />
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form
+        #entryForm="ngForm"
+        (ngSubmit)="onSubmit()"
+        novalidate
+        id="entry-form"
+      >
+        <div class="form-group">
+          <label for="APPNAME">Application Name</label>
+          <input
+            type="text"
+            required
+            #name="ngModel"
+            name="APPNAME"
+            class="form-control"
+            [class.is-valid]="name.valid"
+            [class.is-invalid]="name.invalid && name.touched"
+            [(ngModel)]="newSearch.appname"
+            placeholder="Search"
+          />
+          <small
+            class="text-danger"
+            [class.d-none]="name.valid || name.untouched"
+            >Name is required.</small
+          >
+        </div>
+        <button class="btn btn-block" id="login-form-btn" type="submit">
+          Submit
+        </button>
+      </form>
     </div>
-  </body>
-</html>
+  </div>
+</div>
