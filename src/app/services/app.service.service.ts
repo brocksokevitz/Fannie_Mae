@@ -107,11 +107,20 @@ export class AppService {
     return entry;
   }
 
-  // Method for searching for an application
-  searchEntry(searchEntry: SearchEntry) {
-    //To ensure data is being passed to the service. Delete later.
-    console.log("Inside AppService entryappName: " + searchEntry.appname);
+    // Method for searching for an application
+    searchEntry(searchEntry: SearchEntry) {
+      //To ensure data is being passed to the service. Delete later.
+      console.log(
+        "Inside AppService entryappName: " +
+          searchEntry.appname
+      );
 
-    return this._http.post<any>(this._loginUrl, searchEntry);
-  }
+      for (let i = 0; i < this.apps.length; i++) {
+        if(this.apps[i].appname == searchEntry.appname){
+          return this.apps[i];
+        }
+      }
+
+      return "App doesn't exist";
+    }
 }

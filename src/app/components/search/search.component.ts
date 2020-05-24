@@ -21,16 +21,9 @@ export class SearchComponent implements OnInit {
         this.newSearch.appname
     );
 
-    this._appService.searchEntry(this.newSearch).subscribe(
-      //When a request is successful the data will be returned in the data object.
-      (data) => {
-        console.log("Success", data);
-      },
-      //Incase of error from request, error info is return through error object.
-      (error) => {
-        console.log("Error", error);
-      }
-    );
+    console.log(this._appService.searchEntry(this.newSearch));
+
+
   }
 
 }
