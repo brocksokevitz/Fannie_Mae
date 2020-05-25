@@ -15,10 +15,53 @@ export class AppService {
   //list of apps to simulate backend
 
   public apps = [
-    new AppEntry("app1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", ""),
-    new AppEntry("b", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", ""),
-    new AppEntry("app3", "3", "3", "3", "3", "3", "3", "3", "3", "3", "3", ""),
+    new AppEntry(
+      "InsuranceQuote",
+      "30.00",
+      "5.0",
+      "2.4",
+      "7.6",
+      "5.3",
+      "4.2",
+      "3.2",
+      "5.6",
+      "2.8",
+      "6.0",
+      "93.00"
+    ),
+    new AppEntry(
+      "MortageQuote",
+      "45.00",
+      "2.6",
+      "7.8",
+      "9.3",
+      "5.4",
+      "4.6",
+      "6.3",
+      "7.8",
+      "5.5",
+      "6.6",
+      "75"
+    ),
+    new AppEntry(
+      "InterestRate",
+      "50.00",
+      "3.9",
+      "3.8",
+      "6.5",
+      "7.6",
+      "2.36",
+      "2.14",
+      "5.6",
+      "2.6",
+      "1.3",
+      "60"
+    ),
   ];
+
+  getAppsArray() {
+    return this.apps;
+  }
 
   // Method for adding a new application. AppEntry object passed as parameter has application name and scores.
   appEntry(entry: AppEntry) {
@@ -107,20 +150,17 @@ export class AppService {
     return entry;
   }
 
-    // Method for searching for an application
-    searchEntry(searchEntry: SearchEntry) {
-      //To ensure data is being passed to the service. Delete later.
-      console.log(
-        "Inside AppService entryappName: " +
-          searchEntry.appname
-      );
+  // Method for searching for an application
+  searchEntry(searchEntry: SearchEntry) {
+    //To ensure data is being passed to the service. Delete later.
+    console.log("Inside AppService entryappName: " + searchEntry.appname);
 
-      for (let i = 0; i < this.apps.length; i++) {
-        if(this.apps[i].appname == searchEntry.appname){
-          return this.apps[i];
-        }
+    for (let i = 0; i < this.apps.length; i++) {
+      if (this.apps[i].appname == searchEntry.appname) {
+        return this.apps[i];
       }
-
-      return "App doesn't exist";
     }
+
+    return new AppEntry("", "", "", "", "", "", "", "", "", "", "", "");
+  }
 }

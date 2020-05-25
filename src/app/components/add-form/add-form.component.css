@@ -22,3 +22,7 @@
 .inputDataBind {
   display: none;
 }
+
+#dashboard {
+  margin-top: 20px;
+}

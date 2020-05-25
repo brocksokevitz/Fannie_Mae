@@ -1,0 +1,66 @@
+.addForm {
+  border: 1px solid black;
+  text-align: center;
+  margin-top: 50px;
+}
+.totalScore {
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.searchFormFlexContainer {
+  display: flex;
+}
+.searchFormFlexItem {
+}
+
+.resultsFlexContainer {
+  display: flex;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.appNameResultsItem {
+  width: 75%;
+}
+
+.results {
+  margin: 10px;
+}
+
+.addFormFlexContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.addFormFlexItem {
+  width: 150px;
+
+  height: 100px;
+  text-align: center;
+}
+
+.scoreTile {
+  width: 25%;
+
+  height: 100px;
+  text-align: center;
+}
+
+.scoreDashboard {
+  margin: 20px;
+  border: 1px solid blue;
+  text-align: center;
+}
+
+.inputDataBind {
+  display: none;
+}
+
+#dashboard {
+  margin-top: 20px;
+}

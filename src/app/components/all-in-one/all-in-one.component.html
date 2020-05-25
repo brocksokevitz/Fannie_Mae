@@ -1,0 +1,365 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 addForm">
+      <h4>Enter an Application</h4>
+      <form
+        #entryForm="ngForm"
+        (ngSubmit)="onSubmit()"
+        novalidate
+        id="entry-form"
+      >
+        <div class="addFormFlexContainer">
+          <div class="form-group addFormFlexItem">
+            <label for="APPNAME">Application Name</label>
+            <input
+              type="text"
+              required
+              #name="ngModel"
+              name="APPNAME"
+              class="form-control"
+              [class.is-valid]="name.valid"
+              [class.is-invalid]="name.invalid && name.touched"
+              [(ngModel)]="newEntry.appname"
+            />
+            <small
+              class="text-danger"
+              [class.d-none]="name.valid || name.untouched"
+              >Name is required.</small
+            >
+          </div>
+          <div class="form-group addFormFlexItem">
+            <label for="PERCENTNEW">% New</label>
+            <input
+              type="text"
+              required
+              #name="ngModel"
+              name="PERCENTNEW"
+              class="form-control"
+              [class.is-valid]="name.valid"
+              [class.is-invalid]="name.invalid && name.touched"
+              [(ngModel)]="newEntry.percentnew"
+            />
+            <small
+              class="text-danger"
+              [class.d-none]="name.valid || name.untouched"
+              >Name is required.</small
+            >
+          </div>
+          <div class="form-group addFormFlexItem">
+            <label for="COMPLEXITY">Complexity</label>
+            <input
+              type="text"
+              required
+              #name="ngModel"
+              name="COMPLEXITY"
+              class="form-control"
+              [class.is-valid]="name.valid"
+              [class.is-invalid]="name.invalid && name.touched"
+              [(ngModel)]="newEntry.complexity"
+            />
+            <small
+              class="text-danger"
+              [class.d-none]="name.valid || name.untouched"
+              >Name is required.</small
+            >
+          </div>
+          <div class="form-group addFormFlexItem">
+            <label for="IMPACT">Impact</label>
+            <input
+              type="text"
+              required
+              #name="ngModel"
+              name="IMPACT"
+              class="form-control"
+              [class.is-valid]="name.valid"
+              [class.is-invalid]="name.invalid && name.touched"
+              [(ngModel)]="newEntry.impact"
+            />
+            <small
+              class="text-danger"
+              [class.d-none]="name.valid || name.untouched"
+              >Score required.</small
+            >
+          </div>
+          <div class="form-group addFormFlexItem">
+            <label for="BUSINESSCRITICALITY">Business Criticality</label>
+            <input
+              type="text"
+              required
+              #name="ngModel"
+              name="BUSINESSCRITICALITY"
+              class="form-control"
+              [class.is-valid]="name.valid"
+              [class.is-invalid]="name.invalid && name.touched"
+              [(ngModel)]="newEntry.businesscriticality"
+            />
+            <small
+              class="text-danger"
+              [class.d-none]="name.valid || name.untouched"
+              >Score required.</small
+            >
+          </div>
+
+          <div class="form-group addFormFlexItem">
+            <label for="HISTORY">History</label>
+            <input
+              type="text"
+              required
+              #name="ngModel"
+              name="HISTORY"
+              class="form-control"
+              [class.is-valid]="name.valid"
+              [class.is-invalid]="name.invalid && name.touched"
+              [(ngModel)]="newEntry.history"
+            />
+            <small
+              class="text-danger"
+              [class.d-none]="name.valid || name.untouched"
+              >Score required.</small
+            >
+          </div>
+          <div class="form-group addFormFlexItem">
+            <label for="RELEASEFREQUENCY">Release Frequency</label>
+            <input
+              type="text"
+              required
+              #name="ngModel"
+              name="RELEASEFREQUENCY"
+              class="form-control"
+              [class.is-valid]="name.valid"
+              [class.is-invalid]="name.invalid && name.touched"
+              [(ngModel)]="newEntry.releasefrequency"
+            />
+            <small
+              class="text-danger"
+              [class.d-none]="name.valid || name.untouched"
+              >Score required.</small
+            >
+          </div>
+          <div class="form-group addFormFlexItem">
+            <label for="DEVELOPEDINHOUSE">Developed InHouse</label>
+            <input
+              type="text"
+              required
+              #name="ngModel"
+              name="DEVELOPEDINHOUSE"
+              class="form-control"
+              [class.is-valid]="name.valid"
+              [class.is-invalid]="name.invalid && name.touched"
+              [(ngModel)]="newEntry.developedinhouse"
+            />
+            <small
+              class="text-danger"
+              [class.d-none]="name.valid || name.untouched"
+              >Score required.</small
+            >
+          </div>
+          <div class="form-group addFormFlexItem">
+            <label for="SHAREDCOMPONENT">Shared Component</label>
+            <input
+              type="text"
+              required
+              #name="ngModel"
+              name="SHAREDCOMPONENT"
+              class="form-control"
+              [class.is-valid]="name.valid"
+              [class.is-invalid]="name.invalid && name.touched"
+              [(ngModel)]="newEntry.sharedcomponent"
+            />
+            <small
+              class="text-danger"
+              [class.d-none]="name.valid || name.untouched"
+              >Score required.</small
+            >
+          </div>
+          <div class="form-group addFormFlexItem">
+            <label for="VOLUME">Volume</label>
+            <input
+              type="text"
+              required
+              #name="ngModel"
+              name="VOLUME"
+              class="form-control"
+              [class.is-valid]="name.valid"
+              [class.is-invalid]="name.invalid && name.touched"
+              [(ngModel)]="newEntry.volume"
+            />
+            <small
+              class="text-danger"
+              [class.d-none]="name.valid || name.untouched"
+              >Score required.</small
+            >
+          </div>
+          <div class="form-group addFormFlexItem">
+            <label for="PROVENSCALE">Proven Scale</label>
+            <input
+              type="text"
+              required
+              #name="ngModel"
+              name="PROVENSCALE"
+              class="form-control"
+              [class.is-valid]="name.valid"
+              [class.is-invalid]="name.invalid && name.touched"
+              [(ngModel)]="newEntry.provenscale"
+            />
+            <small
+              class="text-danger"
+              [class.d-none]="name.valid || name.untouched"
+              >Score required.</small
+            >
+          </div>
+        </div>
+
+        <button
+          class="btn btn-block btn-primary"
+          id="login-form-btn"
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+    <!----------------------Search/Dashboard Column----------------------->
+    <div class="col-md-6 addForm">
+      <!--Search Form-->
+      <h4>Search For An Application</h4>
+      <form
+        #entryForm="ngForm"
+        (ngSubmit)="onSearchSubmit()"
+        novalidate
+        id="search-entry-form"
+      >
+        <div class="serchFormFlexContainer">
+          <div class="form-group searchFormFlexItem">
+            <label for="SEARCHAPPNAME"></label>
+            <input
+              type="text"
+              required
+              #name="ngModel"
+              name="SEARCHAPPNAME"
+              class="form-control"
+              [class.is-valid]="name.valid"
+              [class.is-invalid]="name.invalid && name.touched"
+              [(ngModel)]="newSearch.appname"
+              placeholder="Enter Application Name"
+            />
+            <small
+              class="text-danger"
+              [class.d-none]="name.valid || name.untouched"
+              >Name is required.</small
+            >
+          </div>
+          <div class="searchFormFlexContainer">
+            <button
+              class="btn btn-primary searchFormFlexItem"
+              id="login-form-btn"
+              type="submit"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <!--End Search Form-->
+
+      <div class="results">
+        <div class="resultsFlexContainer">
+          <div class="resultsFlexItem appNameResultsItem">
+            {{ resultOne }}
+          </div>
+          <div class="resultsFlexItem">
+            <button class="btn btn-success" (click)="loadScore()">Score</button>
+          </div>
+          <div class="resultsFlexItem">
+            <button class="btn btn-warning">Modify</button>
+          </div>
+          <div class="resultsFlexItem">
+            <button class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+        <div class="resultsFlexContainer">
+          <div class="resultsFlexItem appNameResultsItem">
+            {{ resultTwo }}
+          </div>
+          <div class="resultsFlexItem">
+            <button class="btn btn-warning">Modify</button>
+          </div>
+          <div class="resultsFlexItem">
+            <button class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+        <div class="resultsFlexContainer">
+          <div class="resultsFlexItem appNameResultsItem">
+            {{ resultThree }}
+          </div>
+          <div class="resultsFlexItem">
+            <button class="btn btn-warning">Modify</button>
+          </div>
+          <div class="resultsFlexItem">
+            <button class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+
+      <!--Score DashBoard-->
+      <div class="scoreDashboard">
+        <h1>Dashboard</h1>
+        <div class="totalScore">
+          Total Score <br />
+          {{ totalScore }}
+        </div>
+        <div class="flex-container">
+          <div class="scoreTile" id="percNewScoreTile">
+            <h5>% New</h5>
+            <br />
+
+            <p>{{ percNewScore }}</p>
+          </div>
+          <div class="scoreTile" id="complexityScoreTile">
+            <h5>Compelxity</h5>
+            {{ complexityScore }}
+          </div>
+          <div class="scoreTile" id="impactScoreTile">
+            <h5>Impact</h5>
+            {{ impactScore }}
+          </div>
+          <div class="scoreTile" id="bcScoreTile">
+            <h5>Business Criticality</h5>
+            {{ businessCritScore }}
+          </div>
+          <div class="scoreTile" id="historyScoreTile">
+            <h5>History</h5>
+            {{ historyScore }}
+          </div>
+          <div class="scoreTile" id="releaseFrequencyScoreTile">
+            <h5>Release Frequency</h5>
+            {{ releaseFreqScore }}
+          </div>
+          <div class="scoreTile" id="devInHouseScoreTile">
+            <h5>Developed Inhouse</h5>
+            {{ devInHouseScore }}
+          </div>
+          <div class="scoreTile" id="sharedCompScoreTile">
+            <h5>Shared Component</h5>
+            {{ sharedCompScore }}
+          </div>
+          <div class="scoreTile" id="volumeScoreTile">
+            <h5>Volume</h5>
+            {{ volumeScore }}
+          </div>
+          <div class="scoreTile" id="provenScaleScoreTile">
+            <h5>Proven Scale</h5>
+            {{ provenScaleScore }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6"></div>
+  </div>
+</div>
