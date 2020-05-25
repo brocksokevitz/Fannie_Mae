@@ -62,6 +62,19 @@ export class AppService {
   getAppsArray() {
     return this.apps;
   }
+  add(entry: AppEntry) {
+    this.apps.push(new AppEntry(entry.appname, entry.percentnew,entry.complexity,entry.impact, entry.businesscriticality, entry.history, entry.releasefrequency, entry.developedinhouse, entry.sharedcomponent, entry.volume, entry.provenscale, entry.total));
+    console.log(this.apps);
+  }
+
+  remove(appname: string){
+    for(let i=0; i<this.apps.length;i++){
+      if(this.apps[i].appname==appname){
+        console.log("we got here.");
+        this.apps.splice(i, 1);
+      }
+    }
+  }
 
   // Method for adding a new application. AppEntry object passed as parameter has application name and scores.
   appEntry(entry: AppEntry) {
@@ -151,12 +164,12 @@ export class AppService {
   }
 
   // Method for searching for an application
-  searchEntry(searchEntry: SearchEntry) {
+  searchEntry(searchEntry: string) {
     //To ensure data is being passed to the service. Delete later.
-    console.log("Inside AppService entryappName: " + searchEntry.appname);
+    console.log("Inside AppService entryappName: " + searchEntry);
 
     for (let i = 0; i < this.apps.length; i++) {
-      if (this.apps[i].appname == searchEntry.appname) {
+      if (this.apps[i].appname == searchEntry) {
         return this.apps[i];
       }
     }

@@ -2,11 +2,13 @@ import { Component, OnInit } from "@angular/core";
 import { AppEntry } from "src/app/models/app-entry";
 import { SearchEntry } from "src/app/models/search-entry";
 import { AppService } from "src/app/services/app.service.service";
+import { load } from '@angular/core/src/render3';
 
 @Component({
   selector: "app-all-in-one",
   templateUrl: "./all-in-one.component.html",
   styleUrls: ["./all-in-one.component.css"],
+  providers: [AppService]
 })
 export class AllInOneComponent implements OnInit {
   percNewScore: any = 0;
@@ -86,6 +88,11 @@ export class AllInOneComponent implements OnInit {
     //console.log("Entry with total");
     //console.log(this._appService.appEntryMock(this.newEntry));
     this.totalEntry = this._appService.appEntryMock(this.newEntry);
+
+    
+
+    this._appService.add(this.totalEntry);
+
     //console.log("TotalEntry");
     //console.log(this.totalEntry);
     this.percNewScore = this.totalEntry.percentnew;
@@ -98,19 +105,44 @@ export class AllInOneComponent implements OnInit {
     this.volumeScore = this.totalEntry.volume;
     this.devInHouseScore = this.totalEntry.developedinhouse;
     this.provenScaleScore = this.totalEntry.provenscale;
-
     this.totalScore = this.totalEntry.total;
   }
 
   onSearchSubmit() {
     //Just to verify that the data is being recieved from the form. Delete later.
-    console.log("Start onSubmit() : newSearch: " + this.newSearch.appname);
+    //console.log("Start onSubmit() : newSearch: " + this.newSearch.appname);
 
-    console.log(this._appService.searchEntry(this.newSearch));
+    console.log(this.newSearch.appname);
 
-    this.returnEntry = this._appService.searchEntry(this.newSearch);
+    // this.returnEntry = this._appService.searchEntry(this.newSearch);
 
-    //Check for valid return value
+    // //Check for valid return value
+
+    // if (this.returnEntry.appname == "") {
+    //   console.log("Nothing Found");
+    // } else {
+    //   this.percNewScore = this.returnEntry.percentnew;
+    //   this.complexityScore = this.returnEntry.complexity;
+    //   this.businessCritScore = this.returnEntry.businesscriticality;
+    //   this.historyScore = this.returnEntry.history;
+    //   this.releaseFreqScore = this.returnEntry.releasefrequency;
+    //   this.impactScore = this.returnEntry.impact;
+    //   this.sharedCompScore = this.returnEntry.sharedcomponent;
+    //   this.volumeScore = this.returnEntry.volume;
+    //   this.devInHouseScore = this.returnEntry.developedinhouse;
+    //   this.provenScaleScore = this.returnEntry.provenscale;
+
+    //   this.totalScore = this.returnEntry.total;
+    // }
+
+    this.loadScore(this.newSearch.appname);
+
+    //Send to another component.
+  }
+
+  loadScore(appname: string) {
+    console.log(appname);
+    this.returnEntry = this._appService.searchEntry(appname);
 
     if (this.returnEntry.appname == "") {
       console.log("Nothing Found");
@@ -128,9 +160,21 @@ export class AllInOneComponent implements OnInit {
 
       this.totalScore = this.returnEntry.total;
     }
-
-    //Send to another component.
   }
 
-  loadScore() {}
+  delete(appname: string){
+    console.log(appname);
+    this._appService.remove(appname);
+    document.getElementById(appname).remove();
+    this.percNewScore = 0;
+      this.complexityScore = 0;
+      this.businessCritScore = 0;
+      this.historyScore = 0;
+      this.releaseFreqScore = 0;
+      this.impactScore = 0;
+      this.sharedCompScore = 0;
+      this.volumeScore = 0;
+      this.devInHouseScore = 0;
+      this.provenScaleScore = 0;
+  }
 }
