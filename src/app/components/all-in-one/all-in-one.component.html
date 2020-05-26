@@ -264,23 +264,34 @@
       <!--End Search Form-->
 
       <div class="results">
-        <div class="resultsFlexContainer" *ngFor="let results of this._appService.apps" id = {{results.appname}}>
+        <div
+          class="resultsFlexContainer"
+          *ngFor="let results of this._appService.apps"
+          id="{{ results.appname }}"
+        >
           <div class="resultsFlexItem appNameResultsItem">
             {{ results.appname }}
           </div>
           <div class="resultsFlexItem">
-            <button class="btn btn-success" (click)="loadScore(results.appname)">Score</button>
+            <button
+              class="btn btn-success"
+              (click)="loadScore(results.appname)"
+            >
+              Score
+            </button>
           </div>
           <div class="resultsFlexItem">
             <button class="btn btn-warning">Modify</button>
           </div>
           <div class="resultsFlexItem">
-            <button class="btn btn-danger" (click)="delete(results.appname)">Delete</button>
+            <button class="btn btn-danger" (click)="delete(results.appname)">
+              Delete
+            </button>
           </div>
         </div>
       </div>
 
-       <!-- <div class="results">
+      <!-- <div class="results">
         <div class="resultsFlexContainer">
           <div class="resultsFlexItem appNameResultsItem">
             {{ resultOne }}
@@ -324,7 +335,7 @@
 
       <!--Score DashBoard-->
       <div class="scoreDashboard">
-        <h1>Dashboard</h1>
+        <h1>{{ dashboardAppName }}</h1>
         <div class="totalScore">
           Total Score <br />
           {{ totalScore }}

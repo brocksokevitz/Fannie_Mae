@@ -2,15 +2,16 @@ import { Component, OnInit } from "@angular/core";
 import { AppEntry } from "src/app/models/app-entry";
 import { SearchEntry } from "src/app/models/search-entry";
 import { AppService } from "src/app/services/app.service.service";
-import { load } from '@angular/core/src/render3';
+import { load } from "@angular/core/src/render3";
 
 @Component({
   selector: "app-all-in-one",
   templateUrl: "./all-in-one.component.html",
   styleUrls: ["./all-in-one.component.css"],
-  providers: [AppService]
+  providers: [AppService],
 })
 export class AllInOneComponent implements OnInit {
+  dashboardAppName: string = "Application Name";
   percNewScore: any = 0;
   complexityScore: any = 0;
   impactScore: any = 0;
@@ -89,8 +90,6 @@ export class AllInOneComponent implements OnInit {
     //console.log(this._appService.appEntryMock(this.newEntry));
     this.totalEntry = this._appService.appEntryMock(this.newEntry);
 
-    
-
     this._appService.add(this.totalEntry);
 
     //console.log("TotalEntry");
@@ -106,6 +105,7 @@ export class AllInOneComponent implements OnInit {
     this.devInHouseScore = this.totalEntry.developedinhouse;
     this.provenScaleScore = this.totalEntry.provenscale;
     this.totalScore = this.totalEntry.total;
+    this.dashboardAppName = this.totalEntry.appname;
   }
 
   onSearchSubmit() {
@@ -157,24 +157,25 @@ export class AllInOneComponent implements OnInit {
       this.volumeScore = this.returnEntry.volume;
       this.devInHouseScore = this.returnEntry.developedinhouse;
       this.provenScaleScore = this.returnEntry.provenscale;
+      this.dashboardAppName = this.returnEntry.appname;
 
       this.totalScore = this.returnEntry.total;
     }
   }
 
-  delete(appname: string){
+  delete(appname: string) {
     console.log(appname);
     this._appService.remove(appname);
     document.getElementById(appname).remove();
     this.percNewScore = 0;
-      this.complexityScore = 0;
-      this.businessCritScore = 0;
-      this.historyScore = 0;
-      this.releaseFreqScore = 0;
-      this.impactScore = 0;
-      this.sharedCompScore = 0;
-      this.volumeScore = 0;
-      this.devInHouseScore = 0;
-      this.provenScaleScore = 0;
+    this.complexityScore = 0;
+    this.businessCritScore = 0;
+    this.historyScore = 0;
+    this.releaseFreqScore = 0;
+    this.impactScore = 0;
+    this.sharedCompScore = 0;
+    this.volumeScore = 0;
+    this.devInHouseScore = 0;
+    this.provenScaleScore = 0;
   }
 }
