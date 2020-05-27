@@ -29,6 +29,8 @@ export class AllInOneComponent implements OnInit {
   resultTwo: string = "Result Two";
   resultThree: string = "Result Three";
 
+  modifyAppNotFoundMessage: string = "";
+
   apps = [];
 
   newSearch = new SearchEntry("");
@@ -36,6 +38,8 @@ export class AllInOneComponent implements OnInit {
   returnEntry = new AppEntry("", "", "", "", "", "", "", "", "", "", "", "");
 
   newEntry = new AppEntry("", "", "", "", "", "", "", "", "", "", "", "");
+
+  modifyEntry = new AppEntry("", "", "", "", "", "", "", "", "", "", "", "");
 
   totalEntry = new AppEntry("", "", "", "", "", "", "", "", "", "", "", "");
 
@@ -163,6 +167,18 @@ export class AllInOneComponent implements OnInit {
     }
   }
 
+  populateModify(appname: string) {
+    console.log("in populateModify");
+    console.log(appname);
+    this.returnEntry = this._appService.searchEntry(appname);
+
+    if (this.returnEntry.appname == "") {
+      console.log("Nothing Found");
+    } else {
+      this.modifyEntry.appname = this.returnEntry.appname;
+    }
+  }
+
   delete(appname: string) {
     console.log(appname);
     this._appService.remove(appname);
@@ -177,5 +193,21 @@ export class AllInOneComponent implements OnInit {
     this.volumeScore = 0;
     this.devInHouseScore = 0;
     this.provenScaleScore = 0;
+  }
+
+  onModifySubmit() {
+    //API will return error if app doesnt exist. For mock we return error form service.
+    //Send modifyEntry to appService update method.
+    this.modifyEntry = this._appService.update(this.modifyEntry);
+    if (this.modifyEntry.appname == "") {
+      //Not Found
+      console.log("Not found");
+      this.modifyAppNotFoundMessage = "Application Not Found!";
+    } else {
+      this.loadScore(this.modifyEntry.appname);
+      this.modifyAppNotFoundMessage = "";
+      console.log("in OnModifySubmit");
+      //console.log(this._appService.update(this.modifyEntry));
+    }
   }
 }

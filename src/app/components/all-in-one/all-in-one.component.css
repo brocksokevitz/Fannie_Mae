@@ -64,3 +64,8 @@
 #dashboard {
   margin-top: 20px;
 }
+
+.errorMessage {
+  padding: 5px;
+  color: red;
+}

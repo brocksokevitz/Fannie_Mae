@@ -1,223 +1,500 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 addForm">
-      <h4>Enter an Application</h4>
-      <form
-        #entryForm="ngForm"
-        (ngSubmit)="onSubmit()"
-        novalidate
-        id="entry-form"
-      >
-        <div class="addFormFlexContainer">
-          <div class="form-group addFormFlexItem">
-            <label for="APPNAME">Application Name</label>
-            <input
-              type="text"
-              required
-              #name="ngModel"
-              name="APPNAME"
-              class="form-control"
-              [class.is-valid]="name.valid"
-              [class.is-invalid]="name.invalid && name.touched"
-              [(ngModel)]="newEntry.appname"
-            />
-            <small
-              class="text-danger"
-              [class.d-none]="name.valid || name.untouched"
-              >Name is required.</small
-            >
-          </div>
-          <div class="form-group addFormFlexItem">
-            <label for="PERCENTNEW">% New</label>
-            <input
-              type="text"
-              required
-              #name="ngModel"
-              name="PERCENTNEW"
-              class="form-control"
-              [class.is-valid]="name.valid"
-              [class.is-invalid]="name.invalid && name.touched"
-              [(ngModel)]="newEntry.percentnew"
-            />
-            <small
-              class="text-danger"
-              [class.d-none]="name.valid || name.untouched"
-              >Name is required.</small
-            >
-          </div>
-          <div class="form-group addFormFlexItem">
-            <label for="COMPLEXITY">Complexity</label>
-            <input
-              type="text"
-              required
-              #name="ngModel"
-              name="COMPLEXITY"
-              class="form-control"
-              [class.is-valid]="name.valid"
-              [class.is-invalid]="name.invalid && name.touched"
-              [(ngModel)]="newEntry.complexity"
-            />
-            <small
-              class="text-danger"
-              [class.d-none]="name.valid || name.untouched"
-              >Name is required.</small
-            >
-          </div>
-          <div class="form-group addFormFlexItem">
-            <label for="IMPACT">Impact</label>
-            <input
-              type="text"
-              required
-              #name="ngModel"
-              name="IMPACT"
-              class="form-control"
-              [class.is-valid]="name.valid"
-              [class.is-invalid]="name.invalid && name.touched"
-              [(ngModel)]="newEntry.impact"
-            />
-            <small
-              class="text-danger"
-              [class.d-none]="name.valid || name.untouched"
-              >Score required.</small
-            >
-          </div>
-          <div class="form-group addFormFlexItem">
-            <label for="BUSINESSCRITICALITY">Business Criticality</label>
-            <input
-              type="text"
-              required
-              #name="ngModel"
-              name="BUSINESSCRITICALITY"
-              class="form-control"
-              [class.is-valid]="name.valid"
-              [class.is-invalid]="name.invalid && name.touched"
-              [(ngModel)]="newEntry.businesscriticality"
-            />
-            <small
-              class="text-danger"
-              [class.d-none]="name.valid || name.untouched"
-              >Score required.</small
-            >
-          </div>
+      <!--------------------------------------------------------End Add Form-->
 
-          <div class="form-group addFormFlexItem">
-            <label for="HISTORY">History</label>
-            <input
-              type="text"
-              required
-              #name="ngModel"
-              name="HISTORY"
-              class="form-control"
-              [class.is-valid]="name.valid"
-              [class.is-invalid]="name.invalid && name.touched"
-              [(ngModel)]="newEntry.history"
-            />
-            <small
-              class="text-danger"
-              [class.d-none]="name.valid || name.untouched"
-              >Score required.</small
-            >
+      <!--Start Accordion-->
+
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button
+                class="btn btn-link"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                Add Application Form
+              </button>
+            </h2>
           </div>
-          <div class="form-group addFormFlexItem">
-            <label for="RELEASEFREQUENCY">Release Frequency</label>
-            <input
-              type="text"
-              required
-              #name="ngModel"
-              name="RELEASEFREQUENCY"
-              class="form-control"
-              [class.is-valid]="name.valid"
-              [class.is-invalid]="name.invalid && name.touched"
-              [(ngModel)]="newEntry.releasefrequency"
-            />
-            <small
-              class="text-danger"
-              [class.d-none]="name.valid || name.untouched"
-              >Score required.</small
-            >
-          </div>
-          <div class="form-group addFormFlexItem">
-            <label for="DEVELOPEDINHOUSE">Developed InHouse</label>
-            <input
-              type="text"
-              required
-              #name="ngModel"
-              name="DEVELOPEDINHOUSE"
-              class="form-control"
-              [class.is-valid]="name.valid"
-              [class.is-invalid]="name.invalid && name.touched"
-              [(ngModel)]="newEntry.developedinhouse"
-            />
-            <small
-              class="text-danger"
-              [class.d-none]="name.valid || name.untouched"
-              >Score required.</small
-            >
-          </div>
-          <div class="form-group addFormFlexItem">
-            <label for="SHAREDCOMPONENT">Shared Component</label>
-            <input
-              type="text"
-              required
-              #name="ngModel"
-              name="SHAREDCOMPONENT"
-              class="form-control"
-              [class.is-valid]="name.valid"
-              [class.is-invalid]="name.invalid && name.touched"
-              [(ngModel)]="newEntry.sharedcomponent"
-            />
-            <small
-              class="text-danger"
-              [class.d-none]="name.valid || name.untouched"
-              >Score required.</small
-            >
-          </div>
-          <div class="form-group addFormFlexItem">
-            <label for="VOLUME">Volume</label>
-            <input
-              type="text"
-              required
-              #name="ngModel"
-              name="VOLUME"
-              class="form-control"
-              [class.is-valid]="name.valid"
-              [class.is-invalid]="name.invalid && name.touched"
-              [(ngModel)]="newEntry.volume"
-            />
-            <small
-              class="text-danger"
-              [class.d-none]="name.valid || name.untouched"
-              >Score required.</small
-            >
-          </div>
-          <div class="form-group addFormFlexItem">
-            <label for="PROVENSCALE">Proven Scale</label>
-            <input
-              type="text"
-              required
-              #name="ngModel"
-              name="PROVENSCALE"
-              class="form-control"
-              [class.is-valid]="name.valid"
-              [class.is-invalid]="name.invalid && name.touched"
-              [(ngModel)]="newEntry.provenscale"
-            />
-            <small
-              class="text-danger"
-              [class.d-none]="name.valid || name.untouched"
-              >Score required.</small
-            >
+          <div
+            id="collapseOne"
+            class="collapse show"
+            aria-labelledby="headingOne"
+            data-parent="#accordionExample"
+          >
+            <div class="card-body">
+              <form
+                #entryForm="ngForm"
+                (ngSubmit)="onSubmit()"
+                novalidate
+                id="entry-form"
+              >
+                <div class="addFormFlexContainer">
+                  <div class="form-group addFormFlexItem">
+                    <label for="APPNAME">Application Name</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="APPNAME"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="newEntry.appname"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Name is required.</small
+                    >
+                  </div>
+                  <div class="form-group addFormFlexItem">
+                    <label for="PERCENTNEW">% New</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="PERCENTNEW"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="newEntry.percentnew"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Name is required.</small
+                    >
+                  </div>
+                  <div class="form-group addFormFlexItem">
+                    <label for="COMPLEXITY">Complexity</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="COMPLEXITY"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="newEntry.complexity"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Name is required.</small
+                    >
+                  </div>
+                  <div class="form-group addFormFlexItem">
+                    <label for="IMPACT">Impact</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="IMPACT"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="newEntry.impact"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Score required.</small
+                    >
+                  </div>
+                  <div class="form-group addFormFlexItem">
+                    <label for="BUSINESSCRITICALITY"
+                      >Business Criticality</label
+                    >
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="BUSINESSCRITICALITY"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="newEntry.businesscriticality"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Score required.</small
+                    >
+                  </div>
+
+                  <div class="form-group addFormFlexItem">
+                    <label for="HISTORY">History</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="HISTORY"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="newEntry.history"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Score required.</small
+                    >
+                  </div>
+                  <div class="form-group addFormFlexItem">
+                    <label for="RELEASEFREQUENCY">Release Frequency</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="RELEASEFREQUENCY"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="newEntry.releasefrequency"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Score required.</small
+                    >
+                  </div>
+                  <div class="form-group addFormFlexItem">
+                    <label for="DEVELOPEDINHOUSE">Developed InHouse</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="DEVELOPEDINHOUSE"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="newEntry.developedinhouse"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Score required.</small
+                    >
+                  </div>
+                  <div class="form-group addFormFlexItem">
+                    <label for="SHAREDCOMPONENT">Shared Component</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="SHAREDCOMPONENT"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="newEntry.sharedcomponent"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Score required.</small
+                    >
+                  </div>
+                  <div class="form-group addFormFlexItem">
+                    <label for="VOLUME">Volume</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="VOLUME"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="newEntry.volume"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Score required.</small
+                    >
+                  </div>
+                  <div class="form-group addFormFlexItem">
+                    <label for="PROVENSCALE">Proven Scale</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="PROVENSCALE"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="newEntry.provenscale"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Score required.</small
+                    >
+                  </div>
+                </div>
+
+                <button
+                  class="btn btn-block btn-primary"
+                  id="login-form-btn"
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
           </div>
         </div>
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+              <button
+                class="btn btn-link"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                Modify Application Form
+              </button>
+            </h2>
+          </div>
+          <div
+            id="collapseTwo"
+            class="collapse"
+            aria-labelledby="headingTwo"
+            data-parent="#accordionExample"
+          >
+            <div class="card-body">
+              <form
+                #entryForm="ngForm"
+                (ngSubmit)="onModifySubmit()"
+                novalidate
+                id="modify-form"
+              >
+                <div class="addFormFlexContainer">
+                  <div class="form-group addFormFlexItem">
+                    <label for="APPNAME">Application Name</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="APPNAME"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="modifyEntry.appname"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Name is required.</small
+                    >
+                  </div>
+                  <div class="form-group addFormFlexItem">
+                    <label for="PERCENTNEW">% New</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="PERCENTNEW"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="modifyEntry.percentnew"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Name is required.</small
+                    >
+                  </div>
+                  <div class="form-group addFormFlexItem">
+                    <label for="COMPLEXITY">Complexity</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="COMPLEXITY"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="modifyEntry.complexity"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Name is required.</small
+                    >
+                  </div>
+                  <div class="form-group addFormFlexItem">
+                    <label for="IMPACT">Impact</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="IMPACT"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="modifyEntry.impact"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Score required.</small
+                    >
+                  </div>
+                  <div class="form-group addFormFlexItem">
+                    <label for="BUSINESSCRITICALITY"
+                      >Business Criticality</label
+                    >
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="BUSINESSCRITICALITY"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="modifyEntry.businesscriticality"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Score required.</small
+                    >
+                  </div>
 
-        <button
-          class="btn btn-block btn-primary"
-          id="login-form-btn"
-          type="submit"
-        >
-          Submit
-        </button>
-      </form>
+                  <div class="form-group addFormFlexItem">
+                    <label for="HISTORY">History</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="HISTORY"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="modifyEntry.history"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Score required.</small
+                    >
+                  </div>
+                  <div class="form-group addFormFlexItem">
+                    <label for="RELEASEFREQUENCY">Release Frequency</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="RELEASEFREQUENCY"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="modifyEntry.releasefrequency"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Score required.</small
+                    >
+                  </div>
+                  <div class="form-group addFormFlexItem">
+                    <label for="DEVELOPEDINHOUSE">Developed InHouse</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="DEVELOPEDINHOUSE"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="modifyEntry.developedinhouse"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Score required.</small
+                    >
+                  </div>
+                  <div class="form-group addFormFlexItem">
+                    <label for="SHAREDCOMPONENT">Shared Component</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="SHAREDCOMPONENT"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="modifyEntry.sharedcomponent"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Score required.</small
+                    >
+                  </div>
+                  <div class="form-group addFormFlexItem">
+                    <label for="VOLUME">Volume</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="VOLUME"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="modifyEntry.volume"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Score required.</small
+                    >
+                  </div>
+                  <div class="form-group addFormFlexItem">
+                    <label for="PROVENSCALE">Proven Scale</label>
+                    <input
+                      type="text"
+                      required
+                      #name="ngModel"
+                      name="PROVENSCALE"
+                      class="form-control"
+                      [class.is-valid]="name.valid"
+                      [class.is-invalid]="name.invalid && name.touched"
+                      [(ngModel)]="modifyEntry.provenscale"
+                    />
+                    <small
+                      class="text-danger"
+                      [class.d-none]="name.valid || name.untouched"
+                      >Score required.</small
+                    >
+                  </div>
+                </div>
+                <h3 class="errorMessage">{{ modifyAppNotFoundMessage }}</h3>
+                <button
+                  class="btn btn-block btn-primary"
+                  id="login-form-btn"
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--End Accordion-->
     </div>
     <!----------------------Search/Dashboard Column----------------------->
     <div class="col-md-6 addForm">
@@ -281,7 +558,16 @@
             </button>
           </div>
           <div class="resultsFlexItem">
-            <button class="btn btn-warning">Modify</button>
+            <button
+              class="btn btn-warning"
+              data-toggle="collapse"
+              data-target="#collapseTwo"
+              aria-expanded="true"
+              aria-controls="collapseTwo"
+              (click)="populateModify(results.appname)"
+            >
+              Modify
+            </button>
           </div>
           <div class="resultsFlexItem">
             <button class="btn btn-danger" (click)="delete(results.appname)">

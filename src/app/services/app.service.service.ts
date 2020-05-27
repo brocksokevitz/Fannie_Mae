@@ -63,13 +63,58 @@ export class AppService {
     return this.apps;
   }
   add(entry: AppEntry) {
-    this.apps.push(new AppEntry(entry.appname, entry.percentnew,entry.complexity,entry.impact, entry.businesscriticality, entry.history, entry.releasefrequency, entry.developedinhouse, entry.sharedcomponent, entry.volume, entry.provenscale, entry.total));
+    this.apps.push(
+      new AppEntry(
+        entry.appname,
+        entry.percentnew,
+        entry.complexity,
+        entry.impact,
+        entry.businesscriticality,
+        entry.history,
+        entry.releasefrequency,
+        entry.developedinhouse,
+        entry.sharedcomponent,
+        entry.volume,
+        entry.provenscale,
+        entry.total
+      )
+    );
     console.log(this.apps);
   }
 
-  remove(appname: string){
-    for(let i=0; i<this.apps.length;i++){
-      if(this.apps[i].appname==appname){
+  update(entry: AppEntry) {
+    //Check if the app exist in app array (API)
+    console.log("In update Method");
+    console.log(entry.appname);
+    for (let i = 0; i < this.apps.length; i++) {
+      console.log(this.apps[i].appname);
+      if (this.apps[i].appname == entry.appname) {
+        console.log("Found a match");
+        console.log("Entry before calculate");
+        console.log(entry);
+        //Calculate New Total Score
+        entry = this.calculateScore(entry);
+
+        console.log("Entry after Calculate");
+        console.log(entry);
+
+        //Replace the app in apps array with new entry.
+        console.log("apps[i] before switch");
+        console.log(this.apps[i]);
+        this.apps[i] = entry;
+        console.log("this.apps[i] after switch");
+        console.log(this.apps[i]);
+
+        return this.apps[i];
+      }
+    }
+
+    return new AppEntry("", "", "", "", "", "", "", "", "", "", "", "");
+  }
+
+  remove(appname: string) {
+    for (let i = 0; i < this.apps.length; i++) {
+      if (this.apps[i].appname == appname) {
         console.log("we got here.");
         this.apps.splice(i, 1);
       }
