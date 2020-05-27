@@ -482,7 +482,7 @@
                 </div>
                 <h3 class="errorMessage">{{ modifyAppNotFoundMessage }}</h3>
                 <button
-                  class="btn btn-block btn-primary"
+                  class="btn btn-block btn-warning"
                   id="login-form-btn"
                   type="submit"
                 >
@@ -497,82 +497,84 @@
       <!--End Accordion-->
     </div>
     <!----------------------Search/Dashboard Column----------------------->
-    <div class="col-md-6 addForm">
-      <!--Search Form-->
-      <h4>Search For An Application</h4>
-      <form
-        #entryForm="ngForm"
-        (ngSubmit)="onSearchSubmit()"
-        novalidate
-        id="search-entry-form"
-      >
-        <div class="serchFormFlexContainer">
-          <div class="form-group searchFormFlexItem">
-            <label for="SEARCHAPPNAME"></label>
-            <input
-              type="text"
-              required
-              #name="ngModel"
-              name="SEARCHAPPNAME"
-              class="form-control"
-              [class.is-valid]="name.valid"
-              [class.is-invalid]="name.invalid && name.touched"
-              [(ngModel)]="newSearch.appname"
-              placeholder="Enter Application Name"
-            />
-            <small
-              class="text-danger"
-              [class.d-none]="name.valid || name.untouched"
-              >Name is required.</small
-            >
-          </div>
-          <div class="searchFormFlexContainer">
-            <button
-              class="btn btn-primary searchFormFlexItem"
-              id="login-form-btn"
-              type="submit"
-            >
-              Search
-            </button>
-          </div>
-        </div>
-      </form>
-
-      <!--End Search Form-->
-
-      <div class="results">
-        <div
-          class="resultsFlexContainer"
-          *ngFor="let results of this._appService.apps"
-          id="{{ results.appname }}"
+    <div class="col-md-6 searchFormColumn">
+      <div class="searchResultComp">
+        <!--Search Form-->
+        <h4>Search For An Application</h4>
+        <form
+          #entryForm="ngForm"
+          (ngSubmit)="onSearchSubmit()"
+          novalidate
+          id="search-entry-form"
         >
-          <div class="resultsFlexItem appNameResultsItem">
-            {{ results.appname }}
+          <div class="serchFormFlexContainer">
+            <div class="form-group searchFormFlexItem">
+              <label for="SEARCHAPPNAME"></label>
+              <input
+                type="text"
+                required
+                #name="ngModel"
+                name="SEARCHAPPNAME"
+                class="form-control"
+                [class.is-valid]="name.valid"
+                [class.is-invalid]="name.invalid && name.touched"
+                [(ngModel)]="newSearch.appname"
+                placeholder="Enter Application Name"
+              />
+              <small
+                class="text-danger"
+                [class.d-none]="name.valid || name.untouched"
+                >Name is required.</small
+              >
+            </div>
+            <div class="searchFormFlexContainer">
+              <button
+                class="btn btn-primary searchFormFlexItem"
+                id="login-form-btn"
+                type="submit"
+              >
+                Search
+              </button>
+            </div>
           </div>
-          <div class="resultsFlexItem">
-            <button
-              class="btn btn-success"
-              (click)="loadScore(results.appname)"
-            >
-              Score
-            </button>
-          </div>
-          <div class="resultsFlexItem">
-            <button
-              class="btn btn-warning"
-              data-toggle="collapse"
-              data-target="#collapseTwo"
-              aria-expanded="true"
-              aria-controls="collapseTwo"
-              (click)="populateModify(results.appname)"
-            >
-              Modify
-            </button>
-          </div>
-          <div class="resultsFlexItem">
-            <button class="btn btn-danger" (click)="delete(results.appname)">
-              Delete
-            </button>
+        </form>
+
+        <!--End Search Form-->
+
+        <div class="results">
+          <div
+            class="resultsFlexContainer"
+            *ngFor="let results of this._appService.apps"
+            id="{{ results.appname }}"
+          >
+            <div class="resultsFlexItem appNameResultsItem">
+              {{ results.appname }}
+            </div>
+            <div class="resultsFlexItem">
+              <button
+                class="btn btn-success"
+                (click)="loadScore(results.appname)"
+              >
+                Score
+              </button>
+            </div>
+            <div class="resultsFlexItem">
+              <button
+                class="btn btn-warning"
+                data-toggle="collapse"
+                data-target="#collapseTwo"
+                aria-expanded="true"
+                aria-controls="collapseTwo"
+                (click)="populateModify(results.appname)"
+              >
+                Modify
+              </button>
+            </div>
+            <div class="resultsFlexItem">
+              <button class="btn btn-danger" (click)="delete(results.appname)">
+                Delete
+              </button>
+            </div>
           </div>
         </div>
       </div>
