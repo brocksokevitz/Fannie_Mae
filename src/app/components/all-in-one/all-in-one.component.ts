@@ -183,16 +183,21 @@ export class AllInOneComponent implements OnInit {
     console.log(appname);
     this._appService.remove(appname);
     document.getElementById(appname).remove();
-    this.percNewScore = 0;
-    this.complexityScore = 0;
-    this.businessCritScore = 0;
-    this.historyScore = 0;
-    this.releaseFreqScore = 0;
-    this.impactScore = 0;
-    this.sharedCompScore = 0;
-    this.volumeScore = 0;
-    this.devInHouseScore = 0;
-    this.provenScaleScore = 0;
+    if (appname == this.dashboardAppName){
+      this.percNewScore = 0;
+      this.complexityScore = 0;
+      this.businessCritScore = 0;
+      this.historyScore = 0;
+      this.releaseFreqScore = 0;
+      this.impactScore = 0;
+      this.sharedCompScore = 0;
+      this.volumeScore = 0;
+      this.devInHouseScore = 0;
+      this.provenScaleScore = 0;
+      this.dashboardAppName = "Application Name";
+
+      this.totalScore = 0;
+    }
   }
 
   onModifySubmit() {
